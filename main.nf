@@ -1,80 +1,77 @@
 
 
 process jobDispatcher {
+  debug true
   output:
   stdout
 
-  """
-  #!/bin/bash
+  script:
   echo " JobDispatcher function started"
-  """
 }
 
 process scanProcessor {
+  debug true
   output:
   stdout
 
-  """
-  #!/bin/bash
+  script:
   echo " ScanProcessor function started"
-  """
 }
+
 process createThumbnails {
+  debug true
   output:
   stdout
 
-  """
-  #!/bin/bash
+  script:
   echo " CreateThumbnails function started"
-  """
 }
+
 process createThumbnail {
+  debug true
   output:
   stdout
 
-  """
-  #!/bin/bash
+  script:
   echo " createThumbnail function started"
-  """
 }
+
 process scanalyzerJob {
+  debug true
   output:
   stdout
 
-  """
-  #!/bin/bash
+  script:
   echo " scanalyzerJob function started"
-  """
 }
+
 process stitchProcessor {
+  debug true
   output:
   stdout
 
-  """
-  #!/bin/bash
+  script:
   echo " stitchProcessor function started"
-  """
 }
 
 process jobStateProcessor {
+  debug true
   output:
   stdout
 
-  """
-  #!/bin/bash
+  script:
   echo " jobStateProcessor function started"
-  """
 }
 
 
 workflow {
   
-  jobDispatcher |  view { "I say... $it" }
-  scanProcessor |  view { "I say... $it" }
-  createThumbnails |  view { "I say... $it" }
-  scanalyzerJob |  view { "I say... $it" }
-  stitchProcessor |  view { "I say... $it" }
-  jobStateProcessor |  view { "I say... $it" }
+  jobDispatcher |  view { "$it" }
+  scanProcessor |  view { "$it" }
+  createThumbnails |  view { "$it" }
+  scanalyzerJob |  view { "$it" }
+  stitchProcessor |  view { "$it" }
+  jobStateProcessor |  view { "$it" }
 
 }
 
