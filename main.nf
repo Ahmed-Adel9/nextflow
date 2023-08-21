@@ -5,6 +5,7 @@ process jobDispatcher {
   stdout
 
   """
+  #!/bin/bash
   echo " JobDispatcher function started"
   """
 }
@@ -14,6 +15,7 @@ process scanProcessor {
   stdout
 
   """
+  #!/bin/bash
   echo " ScanProcessor function started"
   """
 }
@@ -22,6 +24,7 @@ process createThumbnails {
   stdout
 
   """
+  #!/bin/bash
   echo " CreateThumbnails function started"
   """
 }
@@ -30,6 +33,7 @@ process createThumbnail {
   stdout
 
   """
+  #!/bin/bash
   echo " createThumbnail function started"
   """
 }
@@ -38,6 +42,7 @@ process scanalyzerJob {
   stdout
 
   """
+  #!/bin/bash
   echo " scanalyzerJob function started"
   """
 }
@@ -46,6 +51,7 @@ process stitchProcessor {
   stdout
 
   """
+  #!/bin/bash
   echo " stitchProcessor function started"
   """
 }
@@ -55,6 +61,7 @@ process jobStateProcessor {
   stdout
 
   """
+  #!/bin/bash
   echo " jobStateProcessor function started"
   """
 }
@@ -62,13 +69,12 @@ process jobStateProcessor {
 
 workflow {
   
-  jobDispatcher |  view { it.trim() }
-  scanProcessor |  view { it.trim() }
-  createThumbnails |  view { it.trim() }
-  scanalyzerJob |  view { it.trim() }
-  stitchProcessor |  view { it.trim() }
-  jobStateProcessor |  view { it.trim() }
+  jobDispatcher |  view { "I say... $it" }
+  scanProcessor |  view { "I say... $it" }
+  createThumbnails |  view { "I say... $it" }
+  scanalyzerJob |  view { "I say... $it" }
+  stitchProcessor |  view { "I say... $it" }
+  jobStateProcessor |  view { "I say... $it" }
 
- 
 }
 
