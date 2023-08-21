@@ -62,7 +62,13 @@ process jobStateProcessor {
 
 workflow {
   
-  jobDispatcher|  view { it.trim() }
+  jobDispatcher |  view { it.trim() }
+  scanProcessor |  view { it.trim() }
+  createThumbnails |  view { it.trim() }
+  scanalyzerJob |  view { it.trim() }
+  stitchProcessor |  view { it.trim() }
+  jobStateProcessor |  view { it.trim() }
+
  
 }
 
