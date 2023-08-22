@@ -1,91 +1,25 @@
+params.str = 'Hello world!'
 
-
-process jobDispatcher {
-  debug true
+process splitLetters {
   output:
-  stdout
+    path 'chunk_*'
 
-  script:
   """
-  echo " JobDispatcher function started"
+  printf '${params.str}' | split -b 6 - chunk_
   """
 }
 
-process scanProcessor {
-  debug true
+process convertToUpper {
+  input:
+    path x
   output:
-  stdout
+    stdout
 
-  script:
   """
-  echo " ScanProcessor function started"
+  cat $x | tr '[a-z]' '[A-Z]'
   """
 }
-
-process createThumbnails {
-  debug true
-  output:
-  stdout
-
-  script:
-  """
-  echo " CreateThumbnails function started"
-  """
-}
-
-process createThumbnail {
-  debug true
-  output:
-  stdout
-
-  script:
-  """
-  echo " createThumbnail function started"
-  """
-}
-
-process scanalyzerJob {
-  debug true
-  output:
-  stdout
-
-  script:
-  """
-  echo " scanalyzerJob function started"
-  """
-}
-
-process stitchProcessor {
-  debug true
-  output:
-  stdout
-
-  script:
-  """
-  echo " stitchProcessor function started"
-  """
-}
-
-process jobStateProcessor {
-  debug true
-  output:
-  stdout
-
-  script:
-  """
-  echo " jobStateProcessor function started"
-  """
-}
-
 
 workflow {
-  
-  jobDispatcher |  view { "$it" }
-  scanProcessor |  view { "$it" }
-  createThumbnails |  view { "$it" }
-  scanalyzerJob |  view { "$it" }
-  stitchProcessor |  view { "$it" }
-  jobStateProcessor |  view { "$it" }
-
+  splitLetters | flatten | convertToUpper | view { it.trim() }
 }
-
