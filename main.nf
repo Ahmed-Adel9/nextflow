@@ -6,7 +6,9 @@ process jobDispatcher {
   stdout
 
   script:
+  """
   echo " JobDispatcher function started"
+  """
 }
 
 process scanProcessor {
@@ -15,7 +17,9 @@ process scanProcessor {
   stdout
 
   script:
+  """
   echo " ScanProcessor function started"
+  """
 }
 
 process createThumbnails {
@@ -24,7 +28,9 @@ process createThumbnails {
   stdout
 
   script:
+  """
   echo " CreateThumbnails function started"
+  """
 }
 
 process createThumbnail {
@@ -33,7 +39,9 @@ process createThumbnail {
   stdout
 
   script:
+  """
   echo " createThumbnail function started"
+  """
 }
 
 process scanalyzerJob {
@@ -42,7 +50,9 @@ process scanalyzerJob {
   stdout
 
   script:
+  """
   echo " scanalyzerJob function started"
+  """
 }
 
 process stitchProcessor {
@@ -51,7 +61,9 @@ process stitchProcessor {
   stdout
 
   script:
+  """
   echo " stitchProcessor function started"
+  """
 }
 
 process jobStateProcessor {
@@ -60,7 +72,9 @@ process jobStateProcessor {
   stdout
 
   script:
+  """
   echo " jobStateProcessor function started"
+  """
 }
 
 
